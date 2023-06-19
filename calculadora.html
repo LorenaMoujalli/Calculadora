@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> <!--CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"> <!--CSS BOOTSTRAP-->
+    <link rel="icon" href="image/favicon.png" type="image/x-icon">  <!--FAVICON-->
+   <!--FONTAWSOME-->
+    <link rel="stylesheet" href="fontawesome/fontawesome-free-6.4.0-web/css/all.css"> 
+
+    <title>Calculadora</title>
+</head>
+
+<body onload="operaciones();">  <!--onload: evento usado para ejecutar una funcion, en este caso la funcion operaciones-->
+
+
+  <div class="calculadora">
+
+    <!--pantalla donde se reflejaran los numeros ingresados y el resultado-->
+    <div id="resultado" class="resultado">0</div>
+
+    <!--botones-->
+    <button id="ac" class="btn">AC</button>
+    <button id="signoMenos" class="btn">- / +</i></button>
+    <button id="porcentaje" class="btn"><i class="fa-solid fa-percent"></i></button>
+    <button id="division" class="btn"><i class="fa-solid fa-divide"></i></button>
+    <button id="siete" class="btn"><i class="fa-solid fa-7"></i></button>
+    <button id="ocho" class="btn"><i class="fa-solid fa-8"></i></button>
+    <button id="nueve" class="btn"><i class="fa-solid fa-9"></i></button>
+    <button id="multiplicacion" class="btn"><i class="fa-solid fa-xmark"></i></button>
+    <button id="cuatro" class="btn"><i class="fa-solid fa-4"></i></button>
+    <button id="cinco" class="btn"><i class="fa-solid fa-5"></i></button>
+    <button id="seis" class="btn"><i class="fa-solid fa-6"></i></button>
+    <button id="menos" class="btn"><i class="fa-solid fa-minus"></i></button>
+    <button id="uno" class="btn"><i class="fa-solid fa-1"></i></button>
+    <button id="dos" class="btn"><i class="fa-solid fa-2"></i></button>
+    <button id="tres" class="btn"><i class="fa-solid fa-3"></i></button>
+    <button id="mas" class="btn"><i class="fa-solid fa-plus"></i></button>
+    <button id="cero" class="btn"><i class="fa-solid fa-0"></i></button>
+    <button id="coma" class="btn">.</button>
+    <button id="borrar" class="btn"><i class="fa-solid fa-delete-left"></i></button>
+    <button id="igual" class="btn"><i class="fa-solid fa-equals"></i></button>
+</div>
+    
+<!--js-->
+<script src="calculadoraLogica.js"></script>
+
+</body>
+</html>
