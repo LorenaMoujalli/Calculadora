@@ -1,8 +1,3 @@
-//Variables 
-let a; //Primer numero ingresado
-let b; //Segundo numero ingresado
-let tipoOperacion; //Tipo de operacion (+,-,/,x)
-
 function operaciones(){
 
   let mostrarCero = true; //Variable para mostrar el cero inicial en la pantalla
@@ -41,6 +36,8 @@ function operaciones(){
         resultado.textContent = resultado.textContent + "0"; //Ingresar el numero cero
       }
 
+
+
 //Nota: La propiedad textContent se utiliza para obtener o establecer el contenido de texto de un elemento HTML.
 
 //Hacer lo mismo para cada uno de los botones
@@ -61,7 +58,7 @@ function operaciones(){
         }
         resultado.textContent = resultado.textContent + "2";
       }
-
+    
      tres.onclick = function(e) {
         if (mostrarCero) {
           resultado.textContent = "";
@@ -146,48 +143,54 @@ function operaciones(){
         eliminar(); //funcion 
     }
 
-    mas.onclick = function(e){
-      a=resultado.textContent; 
-      tipoOperacion= "+";
-      limpiar(); //funcion
+    mas.onclick = function(e) {
+      if (mostrarCero) {
+        resultado.textContent = "";
+        mostrarCero = false;
+      }
+      resultado.textContent = resultado.textContent + "+";
     }
 
-    porcentaje.onclick = function(e){
-        resultado.textContent = resultado.textContent + "%";
-        a=resultado.textContent;
-        tipoOperacion= "%";
-        
+    menos.onclick = function(e) {
+      if (mostrarCero) {
+        resultado.textContent = "";
+        mostrarCero = false;
       }
+      resultado.textContent = resultado.textContent + "-";
+    }
 
-    menos.onclick = function(e){
-        a=resultado.textContent;
-        tipoOperacion= "-";
-        limpiar();
+    multiplicacion.onclick = function(e) {
+      if (mostrarCero) {
+        resultado.textContent = "";
+        mostrarCero = false;
       }
-      multiplicacion.onclick = function(e){
-        a=resultado.textContent;
-        tipoOperacion= "x";
-        limpiar();
-      }
-      division.onclick = function(e){
-        a=resultado.textContent;
-        tipoOperacion= "/";
-        limpiar();
-      }
- 
-      igual.onclick = function(e){
-        b=resultado.textContent;
-        resolver();
-      }
+      resultado.textContent = resultado.textContent + "*";
+    }
 
-     
-      //Funciones
-
-      //Funcion para limpiar pantalla al realizar una operacion
-
-      function limpiar(){ 
-        resultado.textContent="";
+    division.onclick = function(e) {
+      if (mostrarCero) {
+        resultado.textContent = "";
+        mostrarCero = false;
       }
+      resultado.textContent = resultado.textContent + "/";
+    }
+
+    porcentaje.onclick = function(e) {
+      if (mostrarCero) {
+        resultado.textContent = "";
+        mostrarCero = false;
+      }
+      resultado.textContent = resultado.textContent + "/100";
+    }
+
+    igual.onclick=function(e){
+     try {
+    resultado.textContent = eval(resultado.textContent); //eval() devuelve el resultado de esa evaluación
+     } catch {
+    resultado.textContent = "Sintax error";
+    }
+     return;
+     }
 
 
       //Funcion para eliminar un numero
@@ -209,45 +212,7 @@ function operaciones(){
       //Funcion para borrar todo con el boton ac
 
       function borrarTodo(){
-        resultado.textContent="0"; //se muestra el cero inicial 
-        a=0;
-        b=0;
-        tipoOperacion="";
+         resultado.textContent="0"; //se muestra el cero inicial 
         mostrarCero= true;
       }
-
-
-      //Funcion para resolver una operacion
-
-      function resolver() {
-  let respuesta = 0.0000;
-  try {
-    switch (tipoOperacion) {
-      case "+":
-        respuesta = parseFloat(a) + parseFloat(b);
-        break;
-      case "-":
-        respuesta = parseFloat(a) - parseFloat(b);
-        break;
-      case "/":
-        respuesta = parseFloat(a) / parseFloat(b);
-        break;
-      case "x":
-        respuesta = parseFloat(a) * parseFloat(b);
-        break;
-      case "%":
-        respuesta = parseFloat(a) / 100;
-        break;
-      default:
-        throw new Error("Syntax Error"); // Lanza una excepcion en caso de operacion desconocida
-    }
-    borrarTodo();
-    resultado.textContent = respuesta; //Mostrar respuesta
-  } catch (error) { //Si existe un error entonces
-    resultado.textContent = "Syntax Error"; //Mostrar syntax error en la pantalla
-  }
-}
-
-//Nota: La funcion parseFloat se utiliza para analizar una cadena de texto y devolver un numero de punto flotante (numero decimal). Si el inicio de la cadena puede ser convertido en un numero valido, parseFloat devuelve ese numero. Si la cadena no puede ser convertida en un numero valido, parseFloat devuelve NaN (Not a Number).
-
 }
